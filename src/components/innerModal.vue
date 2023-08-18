@@ -9,8 +9,8 @@
 
     <div class="panel mid" ref="mid" :style="{height: midHeight+'px'}">
       <div class="panel left">
-            <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="item" label="试验项目" width="180"/>
+            <el-table :data="tableData" >
+                <el-table-column prop="item" label="试验项目"/>
             </el-table>
       </div>
       <div class="panel right">
@@ -21,7 +21,18 @@
           <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
         </el-tabs>
          frame高度{{frameHeight}}
-       
+          <pre>
+            1  
+              2
+                3
+                  4
+                    5
+                      6
+                        7 
+                          8
+                            9
+                              10
+          </pre>
       </div>
     </div>
 
@@ -103,10 +114,13 @@ export default {
 .left{
   flex-grow: 0;
   overflow-y: scroll;
+  min-width: 150px;
+  margin-bottom: 5px;
 }
 .right{
   flex-grow: 1;
   overflow-y: scroll;
+  margin-bottom: 5px;
 }
 
 .bot{
