@@ -1,12 +1,15 @@
 <template>
+  <!-- 包括上、中、下部分 -->
   <div class="modal-content frame" ref="frame">
 
+    <!-- 上：操作区 -->
     <div class="panel top" ref="ctrl">
       <el-button type="primary">主要按钮</el-button>
       <el-button type="primary">主要按钮</el-button>
       <el-button type="primary">主要按钮</el-button>
     </div>
 
+    <!-- 中：左试验参数，右数据表格。 -->
     <div class="panel mid" ref="mid" :style="{height: midHeight+'px'}">
       <div class="panel left">
             <el-table :data="tableData" >
@@ -20,26 +23,13 @@
           <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
           <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
         </el-tabs>
-         frame高度{{frameHeight}}
-          <pre>
-            1  
-              2
-                3
-                  4
-                    5
-                      6
-                        7 
-                          8
-                            9
-                              10
-          </pre>
+         frame高度{{frameHeight}}<br>
+          <img src="../assets/6.png" alt="">
       </div>
     </div>
 
 
-    <div class="bot" ref="hint">
-      [提示]
-    </div>
+    <div class="bot" ref="hint"> [提示] </div>
 
   </div>
 </template>
@@ -48,20 +38,16 @@
 export default {
   data(){
     return{
-      tableData:[{item:1},
-                  {item:'2'},
-                  {item:'3'},
-                  {item:'4'},
-                  {item:'5'},
-                  {item:'2'},
-               ],
+      tableData:[{item:1},{item:'2'},{item:'3'},{item:'4'},{item:'5'},{item:'2'},],
       
-      frameHeight: 0,
-      ctrlHeight: 0,
-      hintHeight: 0
+      frameHeight: 0, //边框高度
+      ctrlHeight: 0,  //操作按钮区高度
+      hintHeight: 0   //提示区高度
     }
   },
   computed:{
+    
+    // 中：操作区高度计算
     midHeight(){
       return this.frameHeight - this.ctrlHeight - this.hintHeight 
     }
@@ -70,7 +56,9 @@ export default {
     this.frameHeight = this.$refs.frame.getBoundingClientRect().height
     this.ctrlHeight = this.$refs.ctrl.getBoundingClientRect().height
     this.hintHeight = this.$refs.hint.getBoundingClientRect().height
-    console.log(this.frameHeight, this.ctrlHeight, this.hintHeight)
+    
+
+    // 窗口大小变化时，重新计算
     window.onresize = ()=>{
       this.frameHeight = this.$refs.frame.getBoundingClientRect().height
     }
@@ -84,7 +72,8 @@ export default {
 .frame{
   position: relative;
   margin: 0 auto;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 200px); 
+  /*  设置边框高度（得到了frameHeight）=》 算出中间高度，边框高度刷新 */
   overflow: hidden;
 }
 
