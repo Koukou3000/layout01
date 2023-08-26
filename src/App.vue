@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- 1.提示框吸附 -->
-    <div style="height:100px;overflow:hidden;border:1px solid black;">
+    <div style="height:100px;overflow:hidden;">
       <innerModal/>
     </div>
 
@@ -20,6 +20,7 @@ export default {
   name: 'App',
   components: {
     innerModal,
+    adjustList
   }
 }
 </script>
@@ -27,5 +28,6 @@ export default {
 <style>
 body{
   margin: 0 auto;
+  background: #000;
 }
 </style>
