@@ -1,28 +1,31 @@
 <template>
   <div id="app">
+    <!-- 1.提示框吸附 -->
+    <div style="height:100px;overflow:hidden;border:1px solid black;">
+      <innerModal/>
+    </div>
+
+    <!-- 2.路由列表对齐 -->
+    <adjustList/>
     
-    <innerModal/>
-  
   </div>
 </template>
 
 <script>
+import adjustList from './components/adjustList.vue'
 import innerModal from './components/innerModal.vue'
+
 
 export default {
   name: 'App',
   components: {
-    innerModal
+    innerModal,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body{
+  margin: 0 auto;
 }
 </style>

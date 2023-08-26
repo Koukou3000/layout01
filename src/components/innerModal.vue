@@ -36,6 +36,7 @@
 
 <script>
 export default {
+
   data(){
     return{
       tableData:[{item:1},{item:'2'},{item:'3'},{item:'4'},{item:'5'},{item:'2'},],
@@ -79,7 +80,6 @@ export default {
 
 .modal-content{
   position: relative;
-  border: 1px solid black;
   display: flex;
   background-color: rgb(245,245,245);
   flex-direction: column;
